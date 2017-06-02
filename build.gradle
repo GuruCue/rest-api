@@ -1,0 +1,62 @@
+/*
+ * This file is part of Guru Cue Search & Recommendation Engine.
+ * Copyright (C) 2017 Guru Cue Ltd.
+ *
+ * Guru Cue Search & Recommendation Engine is free software: you can
+ * redistribute it and/or modify it under the terms of the GNU General
+ * Public License as published by the Free Software Foundation, either
+ * version 3 of the License, or (at your option) any later version.
+ *
+ * Guru Cue Search & Recommendation Engine is distributed in the hope
+ * that it will be useful, but WITHOUT ANY WARRANTY; without even the
+ * implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with Guru Cue Search & Recommendation Engine. If not, see
+ * <http://www.gnu.org/licenses/>.
+ */
+apply plugin: 'war'
+apply plugin: 'maven'
+apply plugin: 'eclipse'
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+group = 'com.gurucue.recommendations'
+version = hasProperty('build_version') ? build_version : GitVersion.getVersion().toString()
+
+repositories {
+    flatDir dirs: 'libs'
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.apache.logging.log4j:log4j-api:2.2'
+    compile 'org.apache.logging.log4j:log4j-core:2.2'
+    compile 'org.apache.logging.log4j:log4j-slf4j-impl:2.2'
+    providedCompile 'javax.servlet:javax.servlet-api:3.0.1'
+    compile 'com.gurucue.recommendations:database:1.0.0'
+    compile 'com.gurucue.recommendations:data-provider-jdbc:1.0.0'
+    compile 'com.gurucue.recommendations:data-provider-postgresql:1.0.0'
+    compile 'javassist:javassist:3.12.1.GA'
+    compile 'net.sf.trove4j:trove4j:3.0.3'
+    compile 'org.codehaus.groovy:groovy-all:2.2.2'
+    compile 'com.google.guava:guava:18.0'
+    compile 'com.github.javaparser:javaparser-core:2.1.0'
+
+    testCompile 'junit:junit:4.8.1'
+}
+
+war {
+    manifest {
+        attributes( 'Implementation-Title': 'GuruCue Recommendations REST API',
+                    'Implementation-version': version,
+                    'Built-By': System.properties.'user.name'
+                  )
+    }
+    setBaseName 'restapi'
+}
+
+defaultTasks 'build'
+

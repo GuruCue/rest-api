@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN" monitorInterval="30">
+
+    <Appenders>
+        <Console name="console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{ISO8601} %-5level [%logger{2}] %msg%n%throwable"/>
+        </Console>
+
+        <RollingRandomAccessFile name="misc" append="true" fileName="${sys:catalina.home}/logs/misc.log" filePattern="${sys:catalina.home}/logs/misc.log.%d{yyyy-MM-dd}">
+            <PatternLayout pattern="%d{ISO8601} %-5level [%logger{2}] %msg%n%throwable"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+            </Policies>
+        </RollingRandomAccessFile>
+
+        <RollingRandomAccessFile name="guru" append="true" fileName="${sys:catalina.home}/logs/guru.log" filePattern="${sys:catalina.home}/logs/guru.log.%d{yyyy-MM-dd}T%d{HH}00">
+            <PatternLayout pattern="%d{ISO8601} %-5level [%logger{2}] %msg%n%throwable"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+            </Policies>
+        </RollingRandomAccessFile>
+
+        <RollingRandomAccessFile name="caching" append="true" fileName="${sys:catalina.home}/logs/caching.log" filePattern="${sys:catalina.home}/logs/caching.log.%d{yyyy-MM-dd}T%d{HH}00">
+            <PatternLayout pattern="%d{ISO8601} %-5level [%logger{2}] %msg%n%throwable"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+            </Policies>
+        </RollingRandomAccessFile>
+
+        <RollingRandomAccessFile name="service-event" append="true" fileName="${sys:catalina.home}/logs/service-event.log" filePattern="${sys:catalina.home}/logs/service-event.log.%d{yyyy-MM-dd}T%d{HH}00">
+            <PatternLayout pattern="%d{ISO8601} %-5level [%logger{2}] %msg%n%throwable"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+            </Policies>
+        </RollingRandomAccessFile>
+
+        <RollingRandomAccessFile name="service-product" append="true" fileName="${sys:catalina.home}/logs/service-product.log" filePattern="${sys:catalina.home}/logs/service-product.log.%d{yyyy-MM-dd}">
+            <PatternLayout pattern="%d{ISO8601} %-5level [%logger{2}] %msg%n%throwable"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+            </Policies>
+        </RollingRandomAccessFile>
+
+        <RollingRandomAccessFile name="service-recommendation" append="true" fileName="${sys:catalina.home}/logs/service-recommendation.log" filePattern="${sys:catalina.home}/logs/service-recommendation.log.%d{yyyy-MM-dd}T%d{HH}00">
+            <PatternLayout pattern="%d{ISO8601} %-5level [%logger{2}] %msg%n%throwable"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+            </Policies>
+        </RollingRandomAccessFile>
+
+        <RollingRandomAccessFile name="service-search" append="true" fileName="${sys:catalina.home}/logs/service-search.log" filePattern="${sys:catalina.home}/logs/service-search.log.%d{yyyy-MM-dd}T%d{HH}00">
+            <PatternLayout pattern="%d{ISO8601} %-5level [%logger{2}] %msg%n%throwable"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+            </Policies>
+        </RollingRandomAccessFile>
+
+        <RollingRandomAccessFile name="service-consumer" append="true" fileName="${sys:catalina.home}/logs/service-consumer.log" filePattern="${sys:catalina.home}/logs/service-consumer.log.%d{yyyy-MM-dd}T%d{HH}00">
+            <PatternLayout pattern="%d{ISO8601} %-5level [%logger{2}] %msg%n%throwable"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+            </Policies>
+        </RollingRandomAccessFile>
+
+        <RollingRandomAccessFile name="service-other" append="true" fileName="${sys:catalina.home}/logs/service-other.log" filePattern="${sys:catalina.home}/logs/service-other.log.%d{yyyy-MM-dd}">
+            <PatternLayout pattern="%d{ISO8601} %-5level [%logger{2}] %msg%n%throwable"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+            </Policies>
+        </RollingRandomAccessFile>
+
+        <RollingRandomAccessFile name="zap-conversion" append="true" fileName="${sys:catalina.home}/logs/zap-conversion.log" filePattern="${sys:catalina.home}/logs/zap-conversion.log.%d{yyyy-MM-dd}T%d{HH}00">
+            <PatternLayout pattern="%d{ISO8601} %-5level [%logger{2}] %msg%n%throwable"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+            </Policies>
+        </RollingRandomAccessFile>
+
+        <RollingRandomAccessFile name="debug-service-recommendation-recommended" append="true" fileName="${sys:catalina.home}/logs/debug-service-recommendation-recommended.log" filePattern="${sys:catalina.home}/logs/debug-service-recommendation-recommended.log.%d{yyyy-MM-dd}">
+            <PatternLayout pattern="%d{ISO8601} %-5level [%logger{2}] %msg%n%throwable"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+            </Policies>
+        </RollingRandomAccessFile>
+
+        <RollingRandomAccessFile name="debug-service-recommendation-filtered" append="true" fileName="${sys:catalina.home}/logs/debug-service-recommendation-filtered.log" filePattern="${sys:catalina.home}/logs/debug-service-recommendation-filtered.log.%d{yyyy-MM-dd}">
+            <PatternLayout pattern="%d{ISO8601} %-5level [%logger{2}] %msg%n%throwable"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+            </Policies>
+        </RollingRandomAccessFile>
+
+        <RollingRandomAccessFile name="debug-service-recommendation-everything" append="true" fileName="${sys:catalina.home}/logs/debug-service-recommendation-everything.log" filePattern="${sys:catalina.home}/logs/debug-service-recommendation-everything.log.%d{yyyy-MM-dd}">
+            <PatternLayout pattern="%d{ISO8601} %-5level [%logger{2}] %msg%n%throwable"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+            </Policies>
+        </RollingRandomAccessFile>
+
+        <RollingRandomAccessFile name="errors-db-consumer-event" append="true" fileName="${sys:catalina.home}/logs/errors-db-consumer-event.log" filePattern="${sys:catalina.home}/logs/errors-db-consumer-event.log.%d{yyyy-MM-dd}">
+            <PatternLayout pattern="# %d{ISO8601} %-5level%n%msg"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+            </Policies>
+        </RollingRandomAccessFile>
+
+        <RollingRandomAccessFile name="errors-db-consumer-event-data" append="true" fileName="${sys:catalina.home}/logs/errors-db-consumer-event-data.log" filePattern="${sys:catalina.home}/logs/errors-db-consumer-event-data.log.%d{yyyy-MM-dd}">
+            <PatternLayout pattern="# %d{ISO8601} %-5level%n%msg"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+            </Policies>
+        </RollingRandomAccessFile>
+
+        <RollingRandomAccessFile name="errors-db-log-svc-consumer-event" append="true" fileName="${sys:catalina.home}/logs/errors-db-log-svc-consumer-event.log" filePattern="${sys:catalina.home}/logs/errors-db-log-svc-consumer-event.log.%d{yyyy-MM-dd}">
+            <PatternLayout pattern="# %d{ISO8601} %-5level%n%msg"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+            </Policies>
+        </RollingRandomAccessFile>
+
+        <RollingRandomAccessFile name="gc-info" append="true" fileName="${sys:catalina.home}/logs/gc-detection.log" filePattern="${sys:catalina.home}/logs/gc-detection.log.%d{yyyy-MM-dd}">
+            <PatternLayout pattern="%d{ISO8601} %-5level [%logger{2}] %msg%n%throwable"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+            </Policies>
+        </RollingRandomAccessFile>
+    </Appenders>
+
+    <Loggers>
+        <Logger name="com.gurucue.recommendations.rest.GcPauseGauger" additivity="false" level="debug">
+            <AppenderRef ref="gc-info"/>
+        </Logger>
+
+        <Logger name="com.gurucue.recommendations.caching" additivity="false" level="debug">
+            <AppenderRef ref="guru"/>
+            <AppenderRef ref="caching"/>
+        </Logger>
+
+        <Logger name="com.gurucue.recommendations.rest.data.processing.zap" additivity="false" level="debug">
+            <AppenderRef ref="zap-conversion"/>
+        </Logger>
+
+        <Logger name="debug.blender.result" additivity="false" level="debug">
+            <AppenderRef ref="debug-service-recommendation-recommended"/>
+        </Logger>
+
+        <Logger name="debug.blender.filtered" additivity="false" level="debug">
+            <AppenderRef ref="debug-service-recommendation-filtered"/>
+        </Logger>
+
+        <Logger name="debug.blender.everything" additivity="false" level="debug">
+            <AppenderRef ref="debug-service-recommendation-everything"/>
+        </Logger>
+
+        <Logger name="com.gurucue.recommendations.blender.Dataset" additivity="false" level="debug">
+            <AppenderRef ref="service-recommendation"/>
+            <AppenderRef ref="debug-service-recommendation-recommended"/>
+            <AppenderRef ref="debug-service-recommendation-filtered"/>
+            <AppenderRef ref="debug-service-recommendation-everything"/>
+        </Logger>
+
+        <Logger name="com.gurucue" additivity="false" level="debug">
+            <AppenderRef ref="guru"/>
+        </Logger>
+
+        <Logger name="service.Event" additivity="false" level="debug">
+            <AppenderRef ref="service-event"/>
+        </Logger>
+
+        <Logger name="service.Product" additivity="false" level="debug">
+            <AppenderRef ref="service-product"/>
+        </Logger>
+
+        <Logger name="service.Recommendation" additivity="false" level="debug">
+            <AppenderRef ref="service-recommendation"/>
+        </Logger>
+
+        <Logger name="service.Search" additivity="false" level="debug">
+            <AppenderRef ref="service-search"/>
+        </Logger>
+
+        <Logger name="service.Consumer" additivity="false" level="debug">
+            <AppenderRef ref="service-consumer"/>
+        </Logger>
+
+        <Logger name="service" additivity="false" level="debug">
+            <AppenderRef ref="service-other"/>
+        </Logger>
+
+        <Logger name="errors.db.ConsumerEvent" additivity="false" level="debug">
+            <AppenderRef ref="errors-db-consumer-event"/>
+        </Logger>
+
+        <Logger name="errors.db.ConsumerEventData" additivity="false" level="debug">
+            <AppenderRef ref="errors-db-consumer-event-data"/>
+        </Logger>
+
+        <Logger name="errors.db.LogSvcConsumerEvent" additivity="false" level="debug">
+            <AppenderRef ref="errors-db-log-svc-consumer-event"/>
+        </Logger>
+
+        <Root level="info">
+            <AppenderRef ref="misc"/>
+        </Root>
+    </Loggers>
+
+</Configuration>
+<!-- vim: set ts=4 sw=4 et: -->
